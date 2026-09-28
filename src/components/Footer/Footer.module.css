@@ -1,0 +1,83 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 70px;
+  padding: 56px 16px 28px;
+  background: #000;
+  text-align: center;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 26px;
+}
+
+.link {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  text-decoration: none;
+}
+
+.linkActive {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.call {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 166px;
+  height: 46px;
+  margin-top: 40px;
+  border: 1px solid #e0cc22;
+  border-radius: 4px;
+  background: transparent;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  text-decoration: none;
+}
+
+.logoLink {
+  display: block;
+  margin-top: 36px;
+  line-height: 0;
+}
+
+.logo {
+  display: block;
+  width: 100px;
+  height: 30px;
+}
+
+.legal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.legal a {
+  color: #8d8d96;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.year {
+  margin: 80px 0 0;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+}

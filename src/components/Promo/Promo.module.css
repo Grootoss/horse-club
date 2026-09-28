@@ -1,0 +1,68 @@
+.promo {
+  position: relative;
+  margin-top: -72px;
+}
+
+.bg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.content {
+  position: absolute;
+  top: 22%;
+  left: 16px;
+  right: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.title {
+  margin: 0;
+  color: #111;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 28px;
+}
+
+.line {
+  width: 36px;
+  height: 1px;
+  margin: 14px 0 12px;
+  background: #bdbdbd;
+}
+
+.text {
+  margin: 0;
+  max-width: 280px;
+  color: #8d8d8d;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.text strong {
+  color: #222;
+  font-weight: 700;
+}
+
+.signup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(240px, 86%);
+  height: 52px;
+  margin-top: 18px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #ffe56a 0%, #ffd000 100%);
+  box-shadow: 0 4px 0 #e6b000;
+  color: #3a3a3a;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-decoration: none;
+  text-transform: uppercase;
+}

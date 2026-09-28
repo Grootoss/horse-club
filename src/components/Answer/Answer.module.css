@@ -1,0 +1,120 @@
+.answer {
+  box-sizing: border-box;
+  min-height: 817px;
+  margin-top: 70px;
+  padding: 100px 12px 48px;
+  background-color: #d5e3ea;
+  background-image: url('/images/answer-mobile-bg.jpg');
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: 320px auto;
+}
+
+.card {
+  padding: 28px 24px 22px;
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  text-align: center;
+}
+
+.title {
+  margin: 0;
+  color: #2b2b2b;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 28px;
+}
+
+.text {
+  margin: 12px 0 0;
+  color: #8e8e8e;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.text strong {
+  color: #333;
+  font-weight: 700;
+}
+
+.field {
+  display: block;
+  width: 100%;
+  height: 44px;
+  margin-top: 14px;
+  padding: 0 14px;
+  border: 1px solid #cfcfcf;
+  border-radius: 4px;
+  background: #fff;
+  color: #222;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.field::placeholder {
+  color: #b4b4b4;
+}
+
+.submit {
+  width: 100%;
+  height: 44px;
+  margin-top: 16px;
+  border: 0;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #ffe56a 0%, #ffd000 100%);
+  box-shadow: 0 4px 0 #e6b000;
+  color: #3a3a3a;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.consent {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 14px;
+  color: #8a8a8a;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.consent a {
+  color: inherit;
+}
+
+.checkbox {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  opacity: 0;
+}
+
+.mark {
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+  background: #ffd84a url('/images/check-ok.svg') center / 10px 9px no-repeat;
+}
+
+.checkbox:not(:checked) + .mark {
+  background-color: #fff;
+  background-image: none;
+  box-shadow: inset 0 0 0 1.5px #cfcfcf;
+}
+
+.checkbox:focus-visible + .mark {
+  outline: 2px solid #008139;
+  outline-offset: 2px;
+}

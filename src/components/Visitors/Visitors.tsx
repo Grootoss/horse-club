@@ -2,12 +2,12 @@ import styles from './Visitors.module.css'
 import { asset } from '../../lib/asset'
 
 const photos = [1, 2, 3, 4, 5, 6, 7, 8].map((n) => ({
-  mobile: `/images/visitor-mobile-${n}.jpg`,
-  tablet: `/images/visitor-tablet-${n}.jpg`,
+  mobile: asset(`/images/visitor-mobile-${n}.jpg`),
+  tablet: asset(`/images/visitor-tablet-${n}.jpg`),
 }))
 
-const desktopPhotos = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(
-  (n) => `/images/visitor-desktop-${n}.jpg`,
+const desktopPhotos = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) =>
+  asset(`/images/visitor-desktop-${n}.jpg`),
 )
 
 const mobileRows = [

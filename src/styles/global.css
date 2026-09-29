@@ -4,6 +4,36 @@
   box-sizing: border-box;
 }
 
+:root {
+  --color-gray-light: #eaeaea;
+  --color-gray: #8d8d8d;
+  --color-gray-mid: #cfcfcf;
+  --color-black: #202020;
+  --color-text: #3a3a3a;
+  --color-yellow: #ffd000;
+  --color-yellow-light: #ffe56a;
+  --color-yellow-bright: #fff6af;
+  --color-yellow-mid: #fed73e;
+  --color-yellow-deep: #fe9e00;
+  --color-yellow-shadow: #e6b000;
+  --color-green: #008139;
+  --color-green-soft: #3aaa35;
+  --color-error: #ff8a3d;
+  --color-white: #fff;
+
+  --btn-gradient: linear-gradient(180deg, #ffe56a 0%, #ffd000 100%);
+  --btn-gradient-hover: linear-gradient(180deg, #fff3a8 0%, #ffe24d 100%);
+  --btn-gradient-active: linear-gradient(180deg, #ffd84a 0%, #f0b000 100%);
+  --arrow-gradient: linear-gradient(180deg, #fff6af 0%, #fed73e 100%);
+  --arrow-gradient-hover: linear-gradient(180deg, #fff8c4 0%, #ffe56a 100%);
+  --arrow-gradient-active: linear-gradient(180deg, #ffe56a 0%, #f0b820 100%);
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --transition: 0.2s ease;
+}
+
 html,
 body,
 #root {
@@ -18,11 +48,29 @@ body {
 
 body {
   font-family: Philosopher;
-  color: #202020;
-  background: #fff;
+  color: var(--color-black);
+  background: var(--color-white);
 }
 
 button,
 a {
   font-family: inherit;
+}
+
+button {
+  transition:
+    background var(--transition),
+    box-shadow var(--transition),
+    border-color var(--transition),
+    opacity var(--transition),
+    filter var(--transition);
+}
+
+a {
+  transition:
+    color var(--transition),
+    opacity var(--transition),
+    filter var(--transition),
+    border-color var(--transition),
+    background var(--transition);
 }

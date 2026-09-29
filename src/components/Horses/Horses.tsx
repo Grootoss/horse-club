@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import styles from './Horses.module.css'
 
 const tabletSlides = [
@@ -29,6 +29,7 @@ export function Horses() {
   const [desktopIndex, setDesktopIndex] = useState(2)
   const [mode, setMode] = useState<'mobile' | 'tablet' | 'desktop'>('mobile')
   const last = tabletSlides.length - 1
+  const touchStartX = useRef<number | null>(null)
 
   useEffect(() => {
     const tabletMedia = window.matchMedia('(min-width: 768px)')
@@ -63,10 +64,32 @@ export function Horses() {
     setDesktopIndex((value) => (value + 1) % desktopSlides.length)
   }
 
+  const onTouchStart = (clientX: number) => {
+    touchStartX.current = clientX
+  }
+
+  const onTouchEnd = (clientX: number) => {
+    if (touchStartX.current === null) return
+    const delta = clientX - touchStartX.current
+    touchStartX.current = null
+    if (Math.abs(delta) < 40) return
+    if (mode === 'desktop') {
+      if (delta < 0) nextDesktop()
+      else prevDesktop()
+      return
+    }
+    if (delta < 0 && index < last) setIndex((value) => value + 1)
+    if (delta > 0 && index > 0) setIndex((value) => value - 1)
+  }
+
   return (
     <section className={styles.horses}>
       <h2 className={styles.title}>Наши лошади</h2>
-      <div className={styles.viewport}>
+      <div
+        className={styles.viewport}
+        onTouchStart={(event) => onTouchStart(event.changedTouches[0].clientX)}
+        onTouchEnd={(event) => onTouchEnd(event.changedTouches[0].clientX)}
+      >
         <div className={styles.row} style={{ transform }}>
           {tabletSlides.map((slide) => (
             <article key={slide.src} className={styles.slide}>
@@ -80,7 +103,11 @@ export function Horses() {
           ))}
         </div>
       </div>
-      <div className={styles.viewportDesktop}>
+      <div
+        className={styles.viewportDesktop}
+        onTouchStart={(event) => onTouchStart(event.changedTouches[0].clientX)}
+        onTouchEnd={(event) => onTouchEnd(event.changedTouches[0].clientX)}
+      >
         <div className={styles.rowDesktop}>
           {desktopSlides.map((slide, slideIndex) => {
             const rel = relativeIndex(

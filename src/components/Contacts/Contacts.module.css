@@ -83,6 +83,14 @@
   margin-top: 22px;
 }
 
+.socials a:hover {
+  filter: brightness(1.1);
+}
+
+.socials a:active {
+  filter: brightness(0.95);
+}
+
 .socials img {
   display: block;
   width: 32px;

@@ -1,19 +1,19 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import styles from './Reviews.module.css'
 
 const reviews = [
   {
-    text: 'Развивает силу, гибкость и координацию всадника; Выпрямляется осанка и повышается стрессоустойчивость; Общение с лошадью лечит умственные отклонения.',
+    text: 'Развивает силу, гибкость и координацию всадника; Выпрямляется осанка и повышается стрессоустойчивость; Общение с лошадью лечит умственные отклонения. После месяца занятий чувствую себя увереннее и спокойнее в повседневной жизни.',
     name: 'Константин Сюткин',
     ava: '/images/ava-sutkin.svg',
   },
   {
-    text: 'Позитивные эмоции, расслабление, чувство ответственности и даже некоторой сказочности, сразу появляется красивая осанка, работают все группы мышц.',
+    text: 'Позитивные эмоции, расслабление, чувство ответственности и даже некоторой сказочности, сразу появляется красивая осанка, работают все группы мышц. Рекомендую всем, кто ищет баланс между спортом и отдыхом на природе.',
     name: 'Валентина Сорокина',
     ava: '/images/ava-sorokina.svg',
   },
   {
-    text: 'Плюсов до безумия много! Реакция, общение, понимание, взаимопонимание, терпение — перечислять и перечислять очень много всего полезного.',
+    text: 'Плюсов до безумия много! Реакция, общение, понимание, взаимопонимание, терпение — перечислять и перечислять очень много всего полезного для детей и взрослых.',
     name: 'Светлана Мирная',
     ava: '/images/ava-mirnaya.svg',
   },
@@ -34,18 +34,43 @@ function ReviewCard({
   text,
   name,
   ava,
+  onMore,
 }: {
   text: string
   name: string
   ava: string
+  onMore: () => void
 }) {
+  const textRef = useRef<HTMLParagraphElement>(null)
+  const [showMore, setShowMore] = useState(false)
+
+  useEffect(() => {
+    const node = textRef.current
+    if (!node) return
+
+    const check = () => {
+      setShowMore(node.scrollHeight > node.clientHeight + 1)
+    }
+
+    check()
+    const observer = new ResizeObserver(check)
+    observer.observe(node)
+    return () => observer.disconnect()
+  }, [text])
+
   return (
     <div className={styles.card}>
-      <p className={styles.text}>{text}</p>
-      <button className={styles.more} type="button">
-        Подробнее
-        <img src="/images/arrow-down.svg" alt="" />
-      </button>
+      <p className={styles.text} ref={textRef}>
+        {text}
+      </p>
+      {showMore ? (
+        <button className={styles.more} type="button" onClick={onMore}>
+          Подробнее
+          <img src="/images/arrow-down.svg" alt="" />
+        </button>
+      ) : (
+        <span className={styles.moreSpacer} />
+      )}
       <div className={styles.author}>
         <img className={styles.ava} src={ava} alt="" />
         <div className={styles.meta}>
@@ -69,7 +94,9 @@ export function Reviews() {
   const [index, setIndex] = useState(0)
   const [desktopIndex, setDesktopIndex] = useState(0)
   const [mode, setMode] = useState<'mobile' | 'tablet' | 'desktop'>('mobile')
+  const [popup, setPopup] = useState<(typeof reviews)[number] | null>(null)
   const last = reviews.length - 1
+  const touchStartX = useRef<number | null>(null)
 
   useEffect(() => {
     const tabletMedia = window.matchMedia('(min-width: 768px)')
@@ -88,6 +115,19 @@ export function Reviews() {
     }
   }, [])
 
+  useEffect(() => {
+    if (!popup) return
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setPopup(null)
+    }
+    document.addEventListener('keydown', onKey)
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.removeEventListener('keydown', onKey)
+      document.body.style.overflow = ''
+    }
+  }, [popup])
+
   const step = mode === 'tablet' ? 48 : 86
   const transform =
     index === last
@@ -102,19 +142,45 @@ export function Reviews() {
     setDesktopIndex((value) => (value + 1) % reviews.length)
   }
 
+  const onTouchStart = (clientX: number) => {
+    touchStartX.current = clientX
+  }
+
+  const onTouchEnd = (clientX: number) => {
+    if (touchStartX.current === null) return
+    const delta = clientX - touchStartX.current
+    touchStartX.current = null
+    if (Math.abs(delta) < 40) return
+    if (mode === 'desktop') {
+      if (delta < 0) nextDesktop()
+      else prevDesktop()
+      return
+    }
+    if (delta < 0 && index < last) setIndex((value) => value + 1)
+    if (delta > 0 && index > 0) setIndex((value) => value - 1)
+  }
+
   return (
     <section className={styles.reviews}>
       <h2 className={styles.title}>О нас говорят клиенты</h2>
-      <div className={styles.viewport}>
+      <div
+        className={styles.viewport}
+        onTouchStart={(event) => onTouchStart(event.changedTouches[0].clientX)}
+        onTouchEnd={(event) => onTouchEnd(event.changedTouches[0].clientX)}
+      >
         <div className={styles.row} style={{ transform }}>
           {reviews.map((item) => (
             <article key={item.name} className={styles.slide}>
-              <ReviewCard {...item} />
+              <ReviewCard {...item} onMore={() => setPopup(item)} />
             </article>
           ))}
         </div>
       </div>
-      <div className={styles.viewportDesktop}>
+      <div
+        className={styles.viewportDesktop}
+        onTouchStart={(event) => onTouchStart(event.changedTouches[0].clientX)}
+        onTouchEnd={(event) => onTouchEnd(event.changedTouches[0].clientX)}
+      >
         <div className={styles.rowDesktop}>
           {reviews.map((item, slideIndex) => {
             const rel = relativeIndex(slideIndex, desktopIndex, reviews.length)
@@ -127,7 +193,7 @@ export function Reviews() {
                 className={`${styles.slideDesktop} ${posClass}`}
                 style={{ order: rel + 1 }}
               >
-                <ReviewCard {...item} />
+                <ReviewCard {...item} onMore={() => setPopup(item)} />
               </article>
             )
           })}
@@ -180,6 +246,36 @@ export function Reviews() {
           <img className={styles.arrowNext} src="/images/arrow-left.svg" alt="" />
         </button>
       </div>
+      {popup ? (
+        <div
+          className={styles.popup}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Отзыв"
+          onClick={() => setPopup(null)}
+        >
+          <div
+            className={styles.popupCard}
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              className={styles.popupClose}
+              type="button"
+              aria-label="Закрыть"
+              onClick={() => setPopup(null)}
+            >
+              ×
+            </button>
+            <p className={styles.popupText}>{popup.text}</p>
+            <div className={styles.author}>
+              <img className={styles.ava} src={popup.ava} alt="" />
+              <div className={styles.meta}>
+                <p className={styles.name}>{popup.name}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : null}
     </section>
   )
 }

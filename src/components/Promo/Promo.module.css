@@ -69,14 +69,25 @@
   height: 52px;
   margin-top: 18px;
   border-radius: 14px;
-  background: linear-gradient(180deg, #ffe56a 0%, #ffd000 100%);
-  box-shadow: 0 4px 0 #e6b000;
-  color: #3a3a3a;
+  background: var(--btn-gradient);
+  box-shadow: 0 4px 0 var(--color-yellow-shadow);
+  color: var(--color-text);
   font-size: 15px;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-decoration: none;
   text-transform: uppercase;
+  cursor: pointer;
+}
+
+.signup:hover {
+  background: var(--btn-gradient-hover);
+}
+
+.signup:active {
+  background: var(--btn-gradient-active);
+  box-shadow: 0 2px 0 var(--color-yellow-shadow);
+  transform: translateY(2px);
 }
 
 @media (min-width: 768px) {

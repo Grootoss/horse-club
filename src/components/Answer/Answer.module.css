@@ -45,13 +45,40 @@
   height: 44px;
   margin-top: 14px;
   padding: 0 14px;
-  border: 1px solid #cfcfcf;
-  border-radius: 4px;
-  background: #fff;
-  color: #222;
+  border: 1px solid var(--color-gray-mid);
+  border-radius: var(--radius-sm);
+  background: var(--color-white);
+  color: var(--color-black);
   font-family: inherit;
   font-size: 14px;
   font-weight: 400;
+  transition: border-color var(--transition);
+}
+
+.fieldWrap {
+  position: relative;
+  margin-top: 14px;
+}
+
+.fieldWrap .field {
+  margin-top: 0;
+}
+
+.fieldError {
+  position: absolute;
+  top: -16px;
+  left: 0;
+  color: var(--color-error);
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.fieldValid {
+  border-color: #555;
+}
+
+.fieldInvalid {
+  border-color: var(--color-error);
 }
 
 .field::placeholder {
@@ -63,16 +90,26 @@
   height: 44px;
   margin-top: 16px;
   border: 0;
-  border-radius: 8px;
-  background: linear-gradient(180deg, #ffe56a 0%, #ffd000 100%);
-  box-shadow: 0 4px 0 #e6b000;
-  color: #3a3a3a;
+  border-radius: var(--radius-md);
+  background: var(--btn-gradient);
+  box-shadow: 0 4px 0 var(--color-yellow-shadow);
+  color: var(--color-text);
   font-family: inherit;
   font-size: 15px;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   cursor: pointer;
+}
+
+.submit:hover {
+  background: var(--btn-gradient-hover);
+}
+
+.submit:active {
+  background: var(--btn-gradient-active);
+  box-shadow: 0 2px 0 var(--color-yellow-shadow);
+  transform: translateY(2px);
 }
 
 .consent {
@@ -82,14 +119,27 @@
   justify-content: center;
   gap: 8px;
   margin-top: 14px;
-  color: #8a8a8a;
+  color: var(--color-gray);
   font-size: 13px;
   font-weight: 400;
   line-height: 18px;
+  cursor: pointer;
 }
 
 .consent a {
   color: inherit;
+}
+
+.consentInvalid .mark {
+  box-shadow: inset 0 0 0 1.5px var(--color-error);
+}
+
+.consentError {
+  display: block;
+  margin-top: 6px;
+  color: var(--color-error);
+  font-size: 12px;
+  line-height: 14px;
 }
 
 .checkbox {
@@ -109,13 +159,13 @@
 }
 
 .checkbox:not(:checked) + .mark {
-  background-color: #fff;
+  background-color: var(--color-white);
   background-image: none;
-  box-shadow: inset 0 0 0 1.5px #cfcfcf;
+  box-shadow: inset 0 0 0 1.5px var(--color-gray-mid);
 }
 
 .checkbox:focus-visible + .mark {
-  outline: 2px solid #008139;
+  outline: 2px solid var(--color-green);
   outline-offset: 2px;
 }
 

@@ -50,6 +50,10 @@
   font-size: 13px;
   font-weight: 400;
   line-height: 22px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
 }
 
 .more {
@@ -63,12 +67,26 @@
   border-radius: 12px;
   background: #fff;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
-  color: #008139;
+  color: var(--color-green);
   font-family: inherit;
   font-size: 16px;
   font-weight: 400;
   line-height: 20px;
   cursor: pointer;
+}
+
+.more:hover {
+  filter: brightness(1.05);
+}
+
+.more:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.moreSpacer {
+  display: block;
+  height: 17px;
 }
 
 .more img {
@@ -111,6 +129,10 @@
   gap: 8px;
 }
 
+.socials a:hover {
+  filter: brightness(1.12);
+}
+
 .socials img {
   display: block;
   width: 18px;
@@ -123,6 +145,56 @@
   bottom: 22px;
   width: 30px;
   height: 25px;
+}
+
+.popup {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.popupCard {
+  position: relative;
+  width: min(560px, 100%);
+  max-height: min(80vh, 640px);
+  overflow: auto;
+  padding: 36px 32px 28px;
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+  text-align: left;
+}
+
+.popupClose {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #888;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.popupClose:hover {
+  color: var(--color-black);
+}
+
+.popupText {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
 }
 
 .controls {
@@ -142,9 +214,19 @@
   padding: 0;
   border: 0;
   border-radius: 50%;
-  background: linear-gradient(180deg, #fff6af 0%, #fed73e 100%);
+  background: var(--arrow-gradient);
   box-shadow: 0 3px 0 #e0a800;
   cursor: pointer;
+}
+
+.arrow:hover:not(:disabled) {
+  background: var(--arrow-gradient-hover);
+}
+
+.arrow:active:not(:disabled) {
+  background: var(--arrow-gradient-active);
+  box-shadow: 0 1px 0 #e0a800;
+  transform: translateY(2px);
 }
 
 .arrow:disabled {

@@ -53,6 +53,14 @@
   text-decoration: none;
 }
 
+.call:hover {
+  background: rgba(224, 204, 34, 0.12);
+}
+
+.call:active {
+  background: rgba(224, 204, 34, 0.22);
+}
+
 .logoLink {
   display: block;
   order: 3;

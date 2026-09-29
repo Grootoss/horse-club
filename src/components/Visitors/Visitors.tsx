@@ -1,21 +1,79 @@
 import styles from './Visitors.module.css'
 
-const rows = [
-  ['/images/visitor-mobile-1.jpg', '/images/visitor-mobile-2.jpg'],
-  ['/images/visitor-mobile-3.jpg', '/images/visitor-mobile-4.jpg'],
-  ['/images/visitor-mobile-5.jpg', '/images/visitor-mobile-6.jpg'],
-  ['/images/visitor-mobile-7.jpg', '/images/visitor-mobile-8.jpg'],
+const photos = [1, 2, 3, 4, 5, 6, 7, 8].map((n) => ({
+  mobile: `/images/visitor-mobile-${n}.jpg`,
+  tablet: `/images/visitor-tablet-${n}.jpg`,
+}))
+
+const desktopPhotos = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(
+  (n) => `/images/visitor-desktop-${n}.jpg`,
+)
+
+const mobileRows = [
+  [photos[0], photos[1]],
+  [photos[2], photos[3]],
+  [photos[4], photos[5]],
+  [photos[6], photos[7]],
 ]
+
+const tabletRows = [
+  [photos[0], photos[1], photos[2], photos[3]],
+  [photos[4], photos[5], photos[6], photos[7]],
+]
+
+const desktopRows = [
+  desktopPhotos.slice(0, 5),
+  desktopPhotos.slice(5, 10),
+]
+
+function PhotoLink({
+  item,
+}: {
+  item: { mobile: string; tablet: string }
+}) {
+  return (
+    <a className={styles.photoLink} href="#!">
+      <picture>
+        <source media="(min-width: 768px)" srcSet={item.tablet} />
+        <img className={styles.photo} src={item.mobile} alt="" />
+      </picture>
+    </a>
+  )
+}
 
 export function Visitors() {
   return (
     <section className={styles.visitors}>
       <h2 className={styles.title}>Наши посетители</h2>
-      <div className={styles.grid}>
-        {rows.map((row, index) => (
+      <div className={styles.gridMobile}>
+        {mobileRows.map((row, index) => (
+          <div
+            key={row[0].mobile}
+            className={index % 2 === 0 ? styles.row : styles.rowAlt}
+          >
+            {row.map((item) => (
+              <PhotoLink key={item.mobile} item={item} />
+            ))}
+          </div>
+        ))}
+      </div>
+      <div className={styles.gridTablet}>
+        {tabletRows.map((row, index) => (
+          <div
+            key={row[0].tablet}
+            className={index === 0 ? styles.rowTablet1 : styles.rowTablet2}
+          >
+            {row.map((item) => (
+              <PhotoLink key={item.tablet} item={item} />
+            ))}
+          </div>
+        ))}
+      </div>
+      <div className={styles.gridDesktop}>
+        {desktopRows.map((row, index) => (
           <div
             key={row[0]}
-            className={index % 2 === 0 ? styles.row : styles.rowAlt}
+            className={index === 0 ? styles.rowDesktop1 : styles.rowDesktop2}
           >
             {row.map((src) => (
               <a key={src} className={styles.photoLink} href="#!">
@@ -31,6 +89,12 @@ export function Visitors() {
         </button>
         <div className={styles.track}>
           <span className={styles.thumb} />
+        </div>
+        <div className={styles.dots} aria-hidden="true">
+          <span className={styles.dotActive} />
+          <span className={styles.dot} />
+          <span className={styles.dot} />
+          <span className={styles.dot} />
         </div>
         <button className={styles.arrow} type="button" aria-label="Вперёд" disabled>
           <img className={styles.arrowNext} src="/images/arrow-left.svg" alt="" />

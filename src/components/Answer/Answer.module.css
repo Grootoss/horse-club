@@ -118,3 +118,153 @@
   outline: 2px solid #008139;
   outline-offset: 2px;
 }
+
+.submitDesktop,
+.overDesktop,
+.overlayDesktop {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .answer {
+    min-height: 1115px;
+    padding: 120px 24px 64px;
+    background-image: url('/images/answer-tablet-bg.jpg');
+    background-size: 768px auto;
+    background-position: center bottom;
+  }
+
+  .card {
+    max-width: 420px;
+    margin: 0 auto;
+    padding: 36px 40px 28px;
+  }
+
+  .title {
+    font-size: 28px;
+    line-height: 34px;
+  }
+
+  .text {
+    margin-top: 14px;
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  .field {
+    height: 48px;
+    margin-top: 16px;
+    font-size: 15px;
+  }
+
+  .submit {
+    height: 48px;
+    margin-top: 18px;
+  }
+
+  .consent {
+    margin-top: 16px;
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .answer {
+    position: relative;
+    overflow: hidden;
+    min-height: 800px;
+    margin-top: 0;
+    padding: 120px max(48px, calc((100% - 1200px) / 2)) 120px;
+    background-color: #fff;
+    background-image: url('/images/contacts-desktop-bg.jpg');
+    background-position: center top;
+    background-size: 1920px auto;
+    background-repeat: no-repeat;
+  }
+
+  .answer::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    height: 100px;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.55) 45%,
+      #fff 100%
+    );
+    pointer-events: none;
+  }
+
+  .card {
+    position: relative;
+    z-index: 1;
+    max-width: 400px;
+    margin: 0 0 0 auto;
+    padding: 40px 44px 32px;
+  }
+
+  .title {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .text {
+    margin-top: 16px;
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  .field {
+    height: 52px;
+    margin-top: 18px;
+    font-size: 15px;
+  }
+
+  .submit {
+    height: 52px;
+    margin-top: 20px;
+    font-size: 16px;
+  }
+
+  .submitMobile {
+    display: none;
+  }
+
+  .submitDesktop {
+    display: inline;
+  }
+
+  .consent {
+    margin-top: 18px;
+    font-size: 14px;
+  }
+
+  .overDesktop {
+    display: block;
+    position: absolute;
+    right: 219px;
+    bottom: 59px;
+    z-index: 2;
+    width: 295px;
+    height: 318px;
+    object-fit: contain;
+    pointer-events: none;
+  }
+
+  .overlayDesktop {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    z-index: 3;
+    width: 1920px;
+    max-width: none;
+    height: auto;
+    transform: translateX(-50%);
+    pointer-events: none;
+  }
+}

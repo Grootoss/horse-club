@@ -17,6 +17,10 @@
   margin-top: 18px;
 }
 
+.viewportDesktop {
+  display: none;
+}
+
 .row {
   display: flex;
   transition: transform 0.35s ease;
@@ -29,6 +33,7 @@
 }
 
 .card {
+  position: relative;
   padding: 12px 12px 20px;
   border-radius: 16px;
   background: #fff;
@@ -93,7 +98,7 @@
 
 .arrow:disabled {
   opacity: 0.28;
-  cursor: default;
+  cursor: pointer;
 }
 
 .arrow img {
@@ -112,6 +117,7 @@
   height: 4px;
   border-radius: 2px;
   background: #eaeaea;
+  cursor: pointer;
 }
 
 .thumb {
@@ -123,4 +129,183 @@
   border-radius: 3px;
   background: #fe9e00;
   transition: transform 0.35s ease;
+}
+
+.dots {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .horses {
+    padding: 16px 0 40px;
+  }
+
+  .title {
+    margin-top: 48px;
+    font-size: 28px;
+    line-height: 34px;
+  }
+
+  .viewport {
+    margin-top: 28px;
+  }
+
+  .slide {
+    flex: 0 0 40%;
+    padding: 8px 0 20px 24px;
+  }
+
+  .card {
+    padding: 14px 14px 22px;
+  }
+
+  .photo {
+    aspect-ratio: 210 / 252;
+  }
+
+  .name {
+    margin-top: 16px;
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .text {
+    max-width: 260px;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .controls {
+    margin-top: 12px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .horses {
+    padding: 24px 0 170px;
+  }
+
+  .title {
+    margin-top: 56px;
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .viewport {
+    display: none;
+  }
+
+  .viewportDesktop {
+    display: block;
+    width: 100%;
+    max-width: 1920px;
+    margin: 36px auto 0;
+    padding: 0 0 36px;
+    overflow: visible;
+  }
+
+  .rowDesktop {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 1920px;
+    min-height: 680px;
+    padding-bottom: 28px;
+  }
+
+  .slideDesktop {
+    flex: 0 0 368px;
+    width: 368px;
+    max-width: none;
+    min-width: 0;
+    transition: none;
+  }
+
+  .posOuter {
+    z-index: 1;
+    transform: translateY(0);
+  }
+
+  .posOuter .card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.58);
+    pointer-events: none;
+  }
+
+  .posMid,
+  .posCenter {
+    z-index: 2;
+    transform: translateY(48px);
+  }
+
+  .posCenter {
+    z-index: 3;
+  }
+
+  .card {
+    padding: 24px 24px 28px;
+  }
+
+  .photo {
+    width: 320px;
+    height: 421px;
+    aspect-ratio: auto;
+    object-fit: cover;
+  }
+
+  .name {
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  .text {
+    max-width: 300px;
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  .track {
+    display: none;
+  }
+
+  .dots {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .dot,
+  .dotActive {
+    display: block;
+    width: 8px;
+    height: 8px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: #d9d9d9;
+    cursor: pointer;
+  }
+
+  .dotActive {
+    background: #fe9e00;
+  }
+
+  .controls {
+    margin-top: 28px;
+    gap: 28px;
+  }
+
+  .arrow {
+    width: 44px;
+    height: 44px;
+  }
+
+  .arrow:disabled {
+    opacity: 1;
+  }
 }

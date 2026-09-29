@@ -5,8 +5,18 @@ export function Promo() {
   return (
     <section className={styles.promo}>
       <img
-        className={styles.bg}
+        className={styles.bgMobile}
         src="/images/promo-mobile-bg.png"
+        alt=""
+      />
+      <img
+        className={styles.bgTablet}
+        src="/images/promo-tablet-bg.jpg"
+        alt=""
+      />
+      <img
+        className={styles.bgDesktop}
+        src="/images/promo-desktop-bg.jpg"
         alt=""
       />
       <div className={styles.content}>

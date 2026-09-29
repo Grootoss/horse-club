@@ -12,6 +12,21 @@
   line-height: 28px;
 }
 
+.row {
+  display: flex;
+  flex-direction: column;
+}
+
+.girlPic {
+  display: none;
+}
+
+.girl {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .stats {
   display: flex;
   flex-direction: column;
@@ -55,7 +70,7 @@
 }
 
 .reasons {
-  padding: 8px 20px 40px;
+  padding: 58px 20px 40px;
   background: #fff;
   text-align: center;
 }
@@ -105,4 +120,204 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 18px;
+}
+
+@media (min-width: 768px) {
+  .about {
+    padding: 40px 36px 48px;
+  }
+
+  .title {
+    font-size: 28px;
+    line-height: 34px;
+  }
+
+  .row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 28px;
+    margin-top: 36px;
+  }
+
+  .girlPic {
+    display: block;
+    flex: 0 0 300px;
+    width: 300px;
+  }
+
+  .girl {
+    width: 100%;
+    height: auto;
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px 24px;
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+    text-align: left;
+  }
+
+  .stat {
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .value {
+    font-size: 36px;
+  }
+
+  .label {
+    max-width: none;
+    font-size: 13px;
+    line-height: 17px;
+  }
+
+  .text {
+    flex: 0 0 100%;
+    width: 100%;
+    margin-top: 8px;
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .reasons {
+    padding: 66px 24px 56px;
+  }
+
+  .subtitle {
+    margin-top: 10px;
+    font-size: 15px;
+  }
+
+  .reasonList {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px 16px;
+    margin-top: 36px;
+  }
+
+  .reason {
+    min-width: 0;
+  }
+
+  .icon {
+    height: 72px;
+    max-width: 100%;
+    width: auto;
+    margin-bottom: 16px;
+    object-fit: contain;
+  }
+
+  .reasonTitle {
+    font-size: 15px;
+    line-height: 20px;
+  }
+
+  .reasonText {
+    margin-top: 10px;
+    max-width: none;
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .about {
+    padding: 56px max(48px, calc((100% - 1200px) / 2)) 64px;
+  }
+
+  .title {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .row {
+    display: grid;
+    grid-template-columns: minmax(0, 560px) minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    align-items: start;
+    column-gap: 56px;
+    row-gap: 28px;
+    margin-top: 48px;
+  }
+
+  .girlPic {
+    grid-column: 1;
+    grid-row: 1 / -1;
+    flex: none;
+    width: 100%;
+    max-width: 560px;
+    align-self: center;
+    overflow: hidden;
+  }
+
+  .girl {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .stats {
+    grid-column: 2;
+    grid-row: 1;
+    gap: 32px 40px;
+    align-self: end;
+  }
+
+  .value {
+    font-size: 44px;
+  }
+
+  .label {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .text {
+    grid-column: 2;
+    grid-row: 2;
+    flex: none;
+    width: auto;
+    margin: 0;
+    font-size: 15px;
+    line-height: 24px;
+  }
+
+  .reasons {
+    padding: 58px max(48px, calc((100% - 1200px) / 2)) 80px;
+  }
+
+  .subtitle {
+    margin-top: 12px;
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .reasonList {
+    gap: 40px 48px;
+    margin-top: 56px;
+  }
+
+  .icon {
+    height: 120px;
+    margin-bottom: 22px;
+  }
+
+  .reasonTitle {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .reasonText {
+    margin-top: 12px;
+    max-width: 240px;
+    font-size: 14px;
+    line-height: 20px;
+  }
 }

@@ -33,7 +33,10 @@
   gap: 28px;
   margin: 48px 16px 0;
   padding: 0;
-  list-style: none;
+}
+
+.col {
+  display: contents;
 }
 
 .card {
@@ -99,4 +102,154 @@
   letter-spacing: 0.14em;
   text-decoration: none;
   text-transform: uppercase;
+}
+
+.overDesktop {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .service {
+    padding: 48px 0 315px;
+    background-image: url('/images/service-tablet-bg.png');
+    background-position: center bottom;
+    background-size: 768px auto;
+  }
+
+  .title {
+    font-size: 28px;
+    line-height: 34px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+  }
+
+  .list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 48px 24px;
+    margin: 48px 36px 0;
+  }
+
+  .card {
+    margin-bottom: 0;
+    padding: 148px 18px 24px;
+  }
+
+  .photo {
+    top: -24px;
+    left: 16px;
+    right: 16px;
+    width: calc(100% - 32px);
+    height: 160px;
+  }
+
+  .cardTitle {
+    font-size: 17px;
+    line-height: 22px;
+  }
+
+  .text {
+    font-size: 13px;
+    line-height: 18px;
+  }
+
+  .signup {
+    bottom: 122px;
+    width: 200px;
+    height: 48px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .service {
+    overflow: hidden;
+    padding: 200px 0 430px;
+    background-image: url('/images/service-desktop-bg.jpg');
+    background-position: center bottom;
+    background-size: 1920px auto;
+  }
+
+  .title {
+    position: relative;
+    z-index: 1;
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .subtitle {
+    position: relative;
+    z-index: 1;
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .list {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 30px;
+    margin: 56px max(48px, calc((100% - 1200px) / 2)) 0;
+  }
+
+  .col {
+    display: flex;
+    flex: 1 1 0;
+    flex-direction: column;
+    gap: 56px;
+    min-width: 0;
+  }
+
+  .card {
+    order: unset !important;
+    width: 100%;
+    margin-bottom: 0;
+    padding: 214px 36px 28px;
+  }
+
+  .photo {
+    top: -30px;
+    left: 50%;
+    right: auto;
+    width: 320px;
+    height: 220px;
+    transform: translateX(-50%);
+  }
+
+  .cardTitle {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .text {
+    max-width: 268px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .signup {
+    bottom: 180px;
+    z-index: 4;
+    width: 220px;
+    height: 52px;
+    font-size: 16px;
+  }
+
+  .overDesktop {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    z-index: 3;
+    width: 1920px;
+    max-width: none;
+    height: auto;
+    transform: translateX(-50%);
+    pointer-events: none;
+  }
 }

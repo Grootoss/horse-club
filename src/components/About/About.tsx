@@ -46,37 +46,51 @@ export function About() {
   return (
     <>
       <section className={styles.about}>
-      <h2 className={styles.title}>О нашем клубе</h2>
-      <ul className={styles.stats}>
-        {stats.map((item) => (
-          <li key={item.value} className={styles.stat}>
-            <p className={styles.value}>{item.value}</p>
-            <p className={styles.label}>{item.label}</p>
-          </li>
-        ))}
-      </ul>
-      <p className={styles.text}>
-        Занятия проводятся индивидуально и в группах, стоимость также будет
-        зависеть от ваших навыков и умений. Более выгодные условия предусмотрены
-        для регулярных занятий при покупке абонементов. Для тех, кто хочет
-        отточить своё мастерство, разработаны программы по специализации
-        (конкур, выездка и другие), участие в соревнованиях и чемпионатах. Для
-        самых маленьких любителей лошадей действуют пони-клубы, где ребята
-        учатся ухаживать за животными и ездить на милых и добрых пони.
-      </p>
+        <h2 className={styles.title}>О нашем клубе</h2>
+        <div className={styles.row}>
+          <picture className={styles.girlPic}>
+            <source
+              media="(min-width: 1280px)"
+              srcSet="/images/about-desktop-girl.png"
+            />
+            <img
+              className={styles.girl}
+              src="/images/about-tablet-girl.png"
+              alt=""
+            />
+          </picture>
+          <ul className={styles.stats}>
+            {stats.map((item) => (
+              <li key={item.value} className={styles.stat}>
+                <p className={styles.value}>{item.value}</p>
+                <p className={styles.label}>{item.label}</p>
+              </li>
+            ))}
+          </ul>
+          <p className={styles.text}>
+            Занятия проводятся индивидуально и в группах, стоимость также будет
+            зависеть от ваших навыков и умений. Более выгодные условия
+            предусмотрены для регулярных занятий при покупке абонементов. Для
+            тех, кто хочет отточить своё мастерство, разработаны программы по
+            специализации (конкур, выездка и другие), участие в соревнованиях и
+            чемпионатах. Для самых маленьких любителей лошадей действуют
+            пони-клубы, где ребята учатся ухаживать за животными и ездить на
+            милых и добрых пони.
+          </p>
+        </div>
       </section>
       <section className={styles.reasons}>
-      <h2 className={styles.title}>Почему нас выбирают</h2>
-      <p className={styles.subtitle}>Подзаголовок блока</p>
-      <ul className={styles.reasonList}>
-        {reasons.map((item) => (
-          <li key={item.icon} className={styles.reason}>
-            <img className={styles.icon} src={item.icon} alt="" />
-            <h3 className={styles.reasonTitle}>{item.title}</h3>
-            <p className={styles.reasonText}>{item.text}</p>
-          </li>
-        ))}
-      </ul>
+        <h2 className={styles.title}>Почему нас выбирают</h2>
+        <p className={styles.subtitle}>Подзаголовок блока</p>
+        <ul className={styles.reasonList}>
+          {reasons.map((item) => (
+            <li key={item.icon} className={styles.reason}>
+              <img className={styles.icon} src={item.icon} alt="" />
+              <h3 className={styles.reasonTitle}>{item.title}</h3>
+              <p className={styles.reasonText}>{item.text}</p>
+            </li>
+          ))}
+        </ul>
       </section>
     </>
   )

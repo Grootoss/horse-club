@@ -22,7 +22,8 @@ export function Answer() {
           placeholder="Ваш телефон"
         />
         <button className={styles.submit} type="submit">
-          Записаться
+          <span className={styles.submitMobile}>Записаться</span>
+          <span className={styles.submitDesktop}>Задать вопрос</span>
         </button>
         <label className={styles.consent}>
           <input className={styles.checkbox} type="checkbox" defaultChecked />
@@ -32,6 +33,16 @@ export function Answer() {
           </span>
         </label>
       </form>
+      <img
+        className={styles.overDesktop}
+        src="/images/contacts-desktop-over-bg.png"
+        alt=""
+      />
+      <img
+        className={styles.overlayDesktop}
+        src="/images/contacts-desktop-overlay.png"
+        alt=""
+      />
     </section>
   )
 }

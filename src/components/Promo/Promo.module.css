@@ -3,8 +3,20 @@
   margin-top: -72px;
 }
 
-.bg {
+.bgMobile {
   display: block;
+  width: 100%;
+  height: auto;
+}
+
+.bgTablet {
+  display: none;
+  width: 100%;
+  height: auto;
+}
+
+.bgDesktop {
+  display: none;
   width: 100%;
   height: auto;
 }
@@ -65,4 +77,94 @@
   letter-spacing: 0.14em;
   text-decoration: none;
   text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  .promo {
+    margin-top: -80px;
+  }
+
+  .bgMobile {
+    display: none;
+  }
+
+  .bgTablet {
+    display: block;
+  }
+
+  .content {
+    top: 28%;
+    left: 36px;
+    right: auto;
+    align-items: flex-start;
+    text-align: left;
+    max-width: 360px;
+  }
+
+  .title {
+    font-size: 32px;
+    line-height: 38px;
+  }
+
+  .line {
+    margin: 16px 0 14px;
+  }
+
+  .text {
+    max-width: 320px;
+    font-size: 13px;
+    line-height: 20px;
+  }
+
+  .signup {
+    width: 200px;
+    margin-top: 22px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .promo {
+    margin-top: -100px;
+  }
+
+  .bgTablet {
+    display: none;
+  }
+
+  .bgDesktop {
+    display: block;
+  }
+
+  .content {
+    top: 26%;
+    left: max(48px, calc((100% - 1200px) / 2));
+    max-width: 560px;
+  }
+
+  .title {
+    font-size: 48px;
+    line-height: 56px;
+  }
+
+  .line {
+    display: none;
+  }
+
+  .text {
+    max-width: 480px;
+    margin-top: 18px;
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  .text::before {
+    content: '— ';
+  }
+
+  .signup {
+    width: 240px;
+    height: 56px;
+    margin-top: 28px;
+    font-size: 16px;
+  }
 }

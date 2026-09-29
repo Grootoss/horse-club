@@ -11,29 +11,31 @@ const links = [
 export function Footer() {
   return (
     <footer className={styles.footer}>
-      <nav className={styles.nav} aria-label="Разделы">
-        {links.map((item) => (
-          <NavLink
-            key={item.to}
-            to={item.to}
-            className={({ isActive }) =>
-              isActive ? `${styles.link} ${styles.linkActive}` : styles.link
-            }
-          >
-            {item.label}
-          </NavLink>
-        ))}
-      </nav>
-      <a className={styles.call} href="tel:+74950000000">
-        Заказать звонок
-      </a>
-      <Link to="/" className={styles.logoLink}>
-        <img
-          className={styles.logo}
-          src="/images/logo-footer.svg"
-          alt="Максимус — конный клуб"
-        />
-      </Link>
+      <div className={styles.top}>
+        <Link to="/" className={styles.logoLink}>
+          <img
+            className={styles.logo}
+            src="/images/logo-footer.svg"
+            alt="Максимус — конный клуб"
+          />
+        </Link>
+        <nav className={styles.nav} aria-label="Разделы">
+          {links.map((item) => (
+            <NavLink
+              key={item.to}
+              to={item.to}
+              className={({ isActive }) =>
+                isActive ? `${styles.link} ${styles.linkActive}` : styles.link
+              }
+            >
+              {item.label}
+            </NavLink>
+          ))}
+        </nav>
+        <a className={styles.call} href="tel:+74950000000">
+          Заказать звонок
+        </a>
+      </div>
       <div className={styles.legal}>
         <a href="#!">Соглашение на обработку персональных данных</a>
         <a href="#!">Политика конфиденциальности</a>

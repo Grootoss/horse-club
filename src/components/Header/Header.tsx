@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import styles from './Header.module.css'
 
 const menuLinks = [
@@ -40,6 +40,19 @@ export function Header() {
     return () => window.removeEventListener('keydown', onKeyDown)
   }, [open])
 
+  useEffect(() => {
+    const media = window.matchMedia('(min-width: 768px)')
+    const onChange = () => {
+      if (media.matches) {
+        setOpen(false)
+      }
+    }
+
+    onChange()
+    media.addEventListener('change', onChange)
+    return () => media.removeEventListener('change', onChange)
+  }, [])
+
   const onPromo = location.pathname === '/' && !open
 
   return (
@@ -62,6 +75,28 @@ export function Header() {
             />
           </Link>
         )}
+        <nav className={styles.desktopNav} aria-label="Разделы">
+          {menuLinks.map((item) => (
+            <NavLink
+              key={item.to}
+              to={item.to}
+              className={({ isActive }) =>
+                isActive
+                  ? `${styles.desktopLink} ${styles.desktopLinkActive}`
+                  : styles.desktopLink
+              }
+            >
+              {item.label}
+            </NavLink>
+          ))}
+        </nav>
+        <a className={styles.phone} href="tel:+70000000000">
+          <img src="/images/phone-green.svg" alt="" />
+          <span className={styles.phoneBody}>
+            <span className={styles.phoneNumber}>+7 (000) 000-00-00</span>
+            <span className={styles.phoneHours}>Ежедневно 9:00 – 22:00</span>
+          </span>
+        </a>
         <div className={styles.controls}>
           {!open ? (
             <button

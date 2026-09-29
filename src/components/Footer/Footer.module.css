@@ -2,10 +2,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 70px;
   padding: 56px 16px 28px;
   background: #000;
   text-align: center;
+}
+
+.top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 .nav {
@@ -13,6 +19,7 @@
   flex-direction: column;
   align-items: center;
   gap: 26px;
+  order: 1;
 }
 
 .link {
@@ -32,6 +39,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  order: 2;
   width: 166px;
   height: 46px;
   margin-top: 40px;
@@ -47,6 +55,7 @@
 
 .logoLink {
   display: block;
+  order: 3;
   margin-top: 36px;
   line-height: 0;
 }
@@ -81,3 +90,121 @@
   font-weight: 400;
   line-height: 18px;
 }
+
+@media (min-width: 768px) {
+  .footer {
+    align-items: stretch;
+    padding: 36px 40px 28px;
+    text-align: left;
+  }
+
+  .top {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .logoLink,
+  .nav,
+  .call {
+    order: 0;
+    margin-top: 0;
+  }
+
+  .logoLink {
+    transform: translateY(-10px);
+  }
+
+  .logo {
+    width: 120px;
+    height: 36px;
+  }
+
+  .nav {
+    flex-direction: row;
+    flex: 1;
+    justify-content: flex-end;
+    gap: 28px;
+  }
+
+  .link {
+    font-size: 15px;
+    white-space: nowrap;
+  }
+
+  .call {
+    flex-shrink: 0;
+    width: 160px;
+    height: 44px;
+  }
+
+  .legal {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 28px;
+    margin-top: 28px;
+  }
+
+  .legal a {
+    font-size: 12px;
+  }
+
+  .year {
+    display: none;
+  }
+}
+
+@media (min-width: 1280px) {
+  .footer {
+    padding: 48px max(48px, calc((100% - 1200px) / 2)) 40px;
+  }
+
+  .top {
+    gap: 40px;
+  }
+
+  .logoLink {
+    transform: none;
+  }
+
+  .logo {
+    width: 152px;
+    height: 46px;
+  }
+
+  .nav {
+    gap: 40px;
+    margin-left: auto;
+    margin-right: 40px;
+    flex: 0 1 auto;
+    justify-content: flex-end;
+  }
+
+  .link {
+    color: #e8e8e8;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .call {
+    width: 180px;
+    height: 48px;
+    border-color: #e0cc22;
+    font-size: 16px;
+  }
+
+  .legal {
+    gap: 40px;
+    margin-top: 36px;
+  }
+
+  .legal a {
+    color: #8d8d96;
+    font-size: 13px;
+    line-height: 18px;
+  }
+}
+

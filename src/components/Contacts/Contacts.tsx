@@ -1,8 +1,8 @@
 import styles from './Contacts.module.css'
 
 const socials = [
-  { src: '/images/youtube.svg', label: 'YouTube' },
   { src: '/images/insta.svg', label: 'Instagram' },
+  { src: '/images/youtube.svg', label: 'YouTube' },
   { src: '/images/whatsup.svg', label: 'WhatsApp' },
   { src: '/images/vk.svg', label: 'ВКонтакте' },
 ]
@@ -10,11 +10,21 @@ const socials = [
 export function Contacts() {
   return (
     <section className={styles.contacts}>
-      <img
-        className={styles.map}
-        src="/images/contacts-map-mobile.jpg"
-        alt=""
-      />
+      <picture>
+        <source
+          media="(min-width: 1280px)"
+          srcSet="/images/contacts-map-desktop.jpg"
+        />
+        <source
+          media="(min-width: 768px)"
+          srcSet="/images/contacts-map-tablet.jpg"
+        />
+        <img
+          className={styles.map}
+          src="/images/contacts-map-mobile.jpg"
+          alt=""
+        />
+      </picture>
       <div className={styles.card}>
         <h2 className={styles.title}>Контакты</h2>
         <span className={styles.line} />

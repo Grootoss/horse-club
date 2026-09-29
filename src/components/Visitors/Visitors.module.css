@@ -12,11 +12,15 @@
   line-height: 28px;
 }
 
-.grid {
+.gridMobile {
   display: flex;
   flex-direction: column;
   gap: 1px;
   margin-top: 32px;
+}
+
+.gridTablet {
+  display: none;
 }
 
 .row,
@@ -68,7 +72,7 @@
 
 .arrow:disabled {
   opacity: 0.28;
-  cursor: default;
+  cursor: pointer;
 }
 
 .arrow img {
@@ -87,6 +91,7 @@
   height: 4px;
   border-radius: 2px;
   background: #eaeaea;
+  cursor: pointer;
 }
 
 .thumb {
@@ -98,4 +103,134 @@
   border-radius: 3px;
   background: #fe9e00;
   transform: translateY(-50%);
+}
+
+.gridDesktop,
+.dots {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .visitors {
+    padding: 24px 0 40px;
+  }
+
+  .title {
+    font-size: 28px;
+    line-height: 34px;
+  }
+
+  .gridMobile {
+    display: none;
+  }
+
+  .gridTablet {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+    width: max-content;
+    max-width: 100%;
+    margin: 36px auto 0;
+  }
+
+  .rowTablet1,
+  .rowTablet2 {
+    display: grid;
+    gap: 2px;
+  }
+
+  .rowTablet1 {
+    grid-template-columns: 233px 136px 202px 201px;
+  }
+
+  .rowTablet2 {
+    grid-template-columns: 185px 200px 157px 220px;
+  }
+
+  .photo {
+    width: 100%;
+    height: 155px;
+    object-fit: cover;
+  }
+}
+
+@media (min-width: 1280px) {
+  .visitors {
+    padding: 40px 0 56px;
+  }
+
+  .title {
+    margin-top: 40px;
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .gridTablet {
+    display: none;
+  }
+
+  .gridDesktop {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 1920px;
+    max-width: 100%;
+    margin: 48px auto 0;
+  }
+
+  .rowDesktop1,
+  .rowDesktop2 {
+    display: grid;
+    gap: 5px;
+  }
+
+  .rowDesktop1 {
+    grid-template-columns: 470px 321px 369px 420px 320px;
+  }
+
+  .rowDesktop2 {
+    grid-template-columns: 321px 369px 470px 321px 419px;
+  }
+
+  .photo {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+
+  .track {
+    display: none;
+  }
+
+  .dots {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+  }
+
+  .dot,
+  .dotActive {
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #d9d9d9;
+    cursor: pointer;
+  }
+
+  .dotActive {
+    background: #fe9e00;
+  }
+
+  .controls {
+    margin-top: 36px;
+    gap: 28px;
+  }
+
+  .arrow {
+    width: 44px;
+    height: 44px;
+  }
 }

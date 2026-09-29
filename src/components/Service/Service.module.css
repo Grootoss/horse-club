@@ -2,7 +2,7 @@
   position: relative;
   padding: 36px 0 137px;
   background-color: #fff;
-  background-image: url('/images/service-mobile-bg.png');
+  background-image: url('/horse-club/images/service-mobile-bg.png');
   background-repeat: no-repeat;
   background-position: center calc(100% + 50px);
   background-size: 320px auto;
@@ -122,7 +122,7 @@
 @media (min-width: 768px) {
   .service {
     padding: 48px 0 315px;
-    background-image: url('/images/service-tablet-bg.png');
+    background-image: url('/horse-club/images/service-tablet-bg.png');
     background-position: center bottom;
     background-size: 768px auto;
   }
@@ -177,7 +177,7 @@
   .service {
     overflow: hidden;
     padding: 200px 0 430px;
-    background-image: url('/images/service-desktop-bg.jpg');
+    background-image: url('/horse-club/images/service-desktop-bg.jpg');
     background-position: center bottom;
     background-size: 1920px auto;
   }

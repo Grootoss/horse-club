@@ -1,23 +1,24 @@
 import styles from './About.module.css'
+import { asset } from '../../lib/asset'
 
 const reasons = [
   {
-    icon: '/images/about-mobile-1.svg',
+    icon: asset('/images/about-mobile-1.svg'),
     title: 'Удобное расположение',
     text: 'Мы находимся недалеко от автостанции «Восточный» чтобы вам было удобно добираться',
   },
   {
-    icon: '/images/about-mobile-2.svg',
+    icon: asset('/images/about-mobile-2.svg'),
     title: 'Обеденная зона',
     text: 'Имеется столовая, чтобы Вы могли перекусить и немного отдохнуть. Бесплатно чай, кофе, печенки.',
   },
   {
-    icon: '/images/about-mobile-3.svg',
+    icon: asset('/images/about-mobile-3.svg'),
     title: 'Профессиональные тренера',
     text: 'Наши преподаватели имеют награды в конном спорте, и отличные отзывы среди наших учеников',
   },
   {
-    icon: '/images/about-mobile-4.svg',
+    icon: asset('/images/about-mobile-4.svg'),
     title: 'Бесплатная парковка',
     text: 'У нас имеется просторная парковка, чтобы вы могли без проблем припарковать свой автомобиль',
   },
@@ -51,11 +52,11 @@ export function About() {
           <picture className={styles.girlPic}>
             <source
               media="(min-width: 1280px)"
-              srcSet="/images/about-desktop-girl.png"
+              srcSet={asset("/images/about-desktop-girl.png")}
             />
             <img
               className={styles.girl}
-              src="/images/about-tablet-girl.png"
+              src={asset("/images/about-tablet-girl.png")}
               alt=""
             />
           </picture>

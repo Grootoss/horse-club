@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import styles from './Header.module.css'
+import { asset } from '../../lib/asset'
 
 const menuLinks = [
   { to: '/about', label: 'О нас' },
@@ -70,7 +71,7 @@ export function Header() {
           <Link to="/" className={styles.logoLink}>
             <img
               className={styles.logo}
-              src="/images/logo.svg"
+              src={asset("/images/logo.svg")}
               alt="Максимус — конный клуб"
             />
           </Link>
@@ -91,7 +92,7 @@ export function Header() {
           ))}
         </nav>
         <a className={styles.phone} href="tel:+70000000000">
-          <img src="/images/phone-green.svg" alt="" />
+          <img src={asset("/images/phone-green.svg")} alt="" />
           <span className={styles.phoneBody}>
             <span className={styles.phoneNumber}>+7 (000) 000-00-00</span>
             <span className={styles.phoneHours}>Ежедневно 9:00 – 22:00</span>

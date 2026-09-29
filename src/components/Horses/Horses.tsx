@@ -1,18 +1,19 @@
 import { useEffect, useRef, useState } from 'react'
 import styles from './Horses.module.css'
+import { asset } from '../../lib/asset'
 
 const tabletSlides = [
-  { src: '/images/horse-tablet-1.jpg', name: 'Юджин' },
-  { src: '/images/horse-tablet-2.jpg', name: 'Мелиса' },
-  { src: '/images/horse-tablet-3.jpg', name: 'Циан' },
+  { src: asset('/images/horse-tablet-1.jpg'), name: 'Юджин' },
+  { src: asset('/images/horse-tablet-2.jpg'), name: 'Мелиса' },
+  { src: asset('/images/horse-tablet-3.jpg'), name: 'Циан' },
 ]
 
 const desktopSlides = [
-  { src: '/images/horse-desktop-5.jpg', name: 'Жазель' },
-  { src: '/images/horse-tablet-1.jpg', name: 'Юджин' },
-  { src: '/images/horse-tablet-2.jpg', name: 'Мелиса' },
-  { src: '/images/horse-tablet-3.jpg', name: 'Циан' },
-  { src: '/images/horse-desktop-4.jpg', name: 'Хесана' },
+  { src: asset('/images/horse-desktop-5.jpg'), name: 'Жазель' },
+  { src: asset('/images/horse-tablet-1.jpg'), name: 'Юджин' },
+  { src: asset('/images/horse-tablet-2.jpg'), name: 'Мелиса' },
+  { src: asset('/images/horse-tablet-3.jpg'), name: 'Циан' },
+  { src: asset('/images/horse-desktop-4.jpg'), name: 'Хесана' },
 ]
 
 const caption =
@@ -149,7 +150,7 @@ export function Horses() {
             else setIndex((value) => value - 1)
           }}
         >
-          <img src="/images/arrow-left.svg" alt="" />
+          <img src={asset("/images/arrow-left.svg")} alt="" />
         </button>
         <div className={styles.track}>
           <span
@@ -180,7 +181,7 @@ export function Horses() {
             else setIndex((value) => value + 1)
           }}
         >
-          <img className={styles.arrowNext} src="/images/arrow-left.svg" alt="" />
+          <img className={styles.arrowNext} src={asset("/images/arrow-left.svg")} alt="" />
         </button>
       </div>
     </section>

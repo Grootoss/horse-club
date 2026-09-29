@@ -1,4 +1,5 @@
 import styles from './Visitors.module.css'
+import { asset } from '../../lib/asset'
 
 const photos = [1, 2, 3, 4, 5, 6, 7, 8].map((n) => ({
   mobile: `/images/visitor-mobile-${n}.jpg`,
@@ -85,7 +86,7 @@ export function Visitors() {
       </div>
       <div className={styles.controls}>
         <button className={styles.arrow} type="button" aria-label="Назад" disabled>
-          <img src="/images/arrow-left.svg" alt="" />
+          <img src={asset("/images/arrow-left.svg")} alt="" />
         </button>
         <div className={styles.track}>
           <span className={styles.thumb} />
@@ -97,7 +98,7 @@ export function Visitors() {
           <span className={styles.dot} />
         </div>
         <button className={styles.arrow} type="button" aria-label="Вперёд" disabled>
-          <img className={styles.arrowNext} src="/images/arrow-left.svg" alt="" />
+          <img className={styles.arrowNext} src={asset("/images/arrow-left.svg")} alt="" />
         </button>
       </div>
     </section>

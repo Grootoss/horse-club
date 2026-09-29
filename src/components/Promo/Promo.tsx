@@ -1,22 +1,23 @@
 import { Link } from 'react-router-dom'
 import styles from './Promo.module.css'
+import { asset } from '../../lib/asset'
 
 export function Promo() {
   return (
     <section className={styles.promo}>
       <img
         className={styles.bgMobile}
-        src="/images/promo-mobile-bg.png"
+        src={asset("/images/promo-mobile-bg.png")}
         alt=""
       />
       <img
         className={styles.bgTablet}
-        src="/images/promo-tablet-bg.jpg"
+        src={asset("/images/promo-tablet-bg.jpg")}
         alt=""
       />
       <img
         className={styles.bgDesktop}
-        src="/images/promo-desktop-bg.jpg"
+        src={asset("/images/promo-desktop-bg.jpg")}
         alt=""
       />
       <div className={styles.content}>

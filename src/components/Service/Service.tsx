@@ -1,46 +1,47 @@
 import { Link } from 'react-router-dom'
 import styles from './Service.module.css'
+import { asset } from '../../lib/asset'
 
 const services = [
   {
-    mobile: '/images/service-mobile-1.jpg',
-    tablet: '/images/service-tablet-1.jpg',
-    desktop: '/images/service-desktop-1.jpg',
+    mobile: asset('/images/service-mobile-1.jpg'),
+    tablet: asset('/images/service-tablet-1.jpg'),
+    desktop: asset('/images/service-desktop-1.jpg'),
     title: 'Уроки верховой езды',
     text: 'Уроки профессиональной верховой езды для любителей и начинающих',
   },
   {
-    mobile: '/images/service-mobile-2.jpg',
-    tablet: '/images/service-tablet-2.jpg',
-    desktop: '/images/service-desktop-2.jpg',
+    mobile: asset('/images/service-mobile-2.jpg'),
+    tablet: asset('/images/service-tablet-2.jpg'),
+    desktop: asset('/images/service-desktop-2.jpg'),
     title: 'Прогулки верхом с тренером',
     text: 'Тренировка клиентов, подготовка к занятиям конным спортом на профессиональном уровне под руководством опытных тренеров',
   },
   {
-    mobile: '/images/service-mobile-3.jpg',
-    tablet: '/images/service-tablet-3.jpg',
-    desktop: '/images/service-desktop-3.jpg',
+    mobile: asset('/images/service-mobile-3.jpg'),
+    tablet: asset('/images/service-tablet-3.jpg'),
+    desktop: asset('/images/service-desktop-3.jpg'),
     title: 'Фотосессии',
     text: 'Уроки профессиональной верховой езды для любителей и начинающих',
   },
   {
-    mobile: '/images/service-mobile-4.jpg',
-    tablet: '/images/service-tablet-4.jpg',
-    desktop: '/images/service-desktop-4.jpg',
+    mobile: asset('/images/service-mobile-4.jpg'),
+    tablet: asset('/images/service-tablet-4.jpg'),
+    desktop: asset('/images/service-desktop-4.jpg'),
     title: 'Прогулки верхом с тренером',
     text: 'Тренировка клиентов, подготовка к занятиям конным спортом на профессиональном уровне под руководством опытных тренеров',
   },
   {
-    mobile: '/images/service-mobile-5.jpg',
-    tablet: '/images/service-tablet-5.jpg',
-    desktop: '/images/service-desktop-5.jpg',
+    mobile: asset('/images/service-mobile-5.jpg'),
+    tablet: asset('/images/service-tablet-5.jpg'),
+    desktop: asset('/images/service-desktop-5.jpg'),
     title: 'Фотосессии',
     text: 'Уроки профессиональной верховой езды для любителей и начинающих',
   },
   {
-    mobile: '/images/service-mobile-6.jpg',
-    tablet: '/images/service-tablet-6.jpg',
-    desktop: '/images/service-desktop-6.jpg',
+    mobile: asset('/images/service-mobile-6.jpg'),
+    tablet: asset('/images/service-tablet-6.jpg'),
+    desktop: asset('/images/service-desktop-6.jpg'),
     title: 'Прогулки верхом с тренером',
     text: 'Тренировка клиентов, подготовка к занятиям конным спортом на профессиональном уровне под руководством опытных тренеров',
   },
@@ -96,7 +97,7 @@ export function Service() {
       </Link>
       <img
         className={styles.overDesktop}
-        src="/images/service-desktop-over-bg.png"
+        src={asset("/images/service-desktop-over-bg.png")}
         alt=""
       />
     </section>

@@ -1,26 +1,27 @@
 import { useEffect, useRef, useState } from 'react'
 import styles from './Reviews.module.css'
+import { asset } from '../../lib/asset'
 
 const reviews = [
   {
     text: 'Развивает силу, гибкость и координацию всадника; Выпрямляется осанка и повышается стрессоустойчивость; Общение с лошадью лечит умственные отклонения. После месяца занятий чувствую себя увереннее и спокойнее в повседневной жизни.',
     name: 'Константин Сюткин',
-    ava: '/images/ava-sutkin.svg',
+    ava: asset('/images/ava-sutkin.svg'),
   },
   {
     text: 'Позитивные эмоции, расслабление, чувство ответственности и даже некоторой сказочности, сразу появляется красивая осанка, работают все группы мышц. Рекомендую всем, кто ищет баланс между спортом и отдыхом на природе.',
     name: 'Валентина Сорокина',
-    ava: '/images/ava-sorokina.svg',
+    ava: asset('/images/ava-sorokina.svg'),
   },
   {
     text: 'Плюсов до безумия много! Реакция, общение, понимание, взаимопонимание, терпение — перечислять и перечислять очень много всего полезного для детей и взрослых.',
     name: 'Светлана Мирная',
-    ava: '/images/ava-mirnaya.svg',
+    ava: asset('/images/ava-mirnaya.svg'),
   },
   {
     text: 'Привезла дочь на пробное занятие — теперь не можем представить выходные без конюшни. Тренеры внимательные, лошади спокойные, атмосфера семейная и тёплая.',
     name: 'Анна Петрова',
-    ava: '/images/ava-petrova.svg',
+    ava: asset('/images/ava-petrova.svg'),
   },
 ]
 
@@ -66,7 +67,7 @@ function ReviewCard({
       {showMore ? (
         <button className={styles.more} type="button" onClick={onMore}>
           Подробнее
-          <img src="/images/arrow-down.svg" alt="" />
+          <img src={asset("/images/arrow-down.svg")} alt="" />
         </button>
       ) : (
         <span className={styles.moreSpacer} />
@@ -77,14 +78,14 @@ function ReviewCard({
           <p className={styles.name}>{name}</p>
           <div className={styles.socials}>
             <a href="#!" aria-label="Instagram">
-              <img src="/images/social-insta.svg" alt="" />
+              <img src={asset("/images/social-insta.svg")} alt="" />
             </a>
             <a href="#!" aria-label="ВКонтакте">
-              <img src="/images/social-vk.svg" alt="" />
+              <img src={asset("/images/social-vk.svg")} alt="" />
             </a>
           </div>
         </div>
-        <img className={styles.quote} src="/images/quote.svg" alt="" />
+        <img className={styles.quote} src={asset("/images/quote.svg")} alt="" />
       </div>
     </div>
   )
@@ -210,7 +211,7 @@ export function Reviews() {
             else setIndex((value) => value - 1)
           }}
         >
-          <img src="/images/arrow-left.svg" alt="" />
+          <img src={asset("/images/arrow-left.svg")} alt="" />
         </button>
         <div className={styles.track}>
           <span
@@ -243,7 +244,7 @@ export function Reviews() {
             else setIndex((value) => value + 1)
           }}
         >
-          <img className={styles.arrowNext} src="/images/arrow-left.svg" alt="" />
+          <img className={styles.arrowNext} src={asset("/images/arrow-left.svg")} alt="" />
         </button>
       </div>
       {popup ? (

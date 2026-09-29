@@ -4,7 +4,7 @@
   margin-top: 70px;
   padding: 100px 12px 48px;
   background-color: #d5e3ea;
-  background-image: url('/images/answer-mobile-bg.jpg');
+  background-image: url('/horse-club/images/answer-mobile-bg.jpg');
   background-repeat: no-repeat;
   background-position: center bottom;
   background-size: 320px auto;
@@ -155,7 +155,7 @@
   width: 16px;
   height: 16px;
   border-radius: 2px;
-  background: #ffd84a url('/images/check-ok.svg') center / 10px 9px no-repeat;
+  background: #ffd84a url('/horse-club/images/check-ok.svg') center / 10px 9px no-repeat;
 }
 
 .checkbox:not(:checked) + .mark {
@@ -179,7 +179,7 @@
   .answer {
     min-height: 1115px;
     padding: 120px 24px 64px;
-    background-image: url('/images/answer-tablet-bg.jpg');
+    background-image: url('/horse-club/images/answer-tablet-bg.jpg');
     background-size: 768px auto;
     background-position: center bottom;
   }
@@ -226,7 +226,7 @@
     margin-top: 0;
     padding: 120px max(48px, calc((100% - 1200px) / 2)) 120px;
     background-color: #fff;
-    background-image: url('/images/contacts-desktop-bg.jpg');
+    background-image: url('/horse-club/images/contacts-desktop-bg.jpg');
     background-position: center top;
     background-size: 1920px auto;
     background-repeat: no-repeat;

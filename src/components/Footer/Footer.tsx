@@ -1,5 +1,6 @@
 import { Link, NavLink } from 'react-router-dom'
 import styles from './Footer.module.css'
+import { asset } from '../../lib/asset'
 
 const links = [
   { to: '/about', label: 'О нас' },
@@ -15,7 +16,7 @@ export function Footer() {
         <Link to="/" className={styles.logoLink}>
           <img
             className={styles.logo}
-            src="/images/logo-footer.svg"
+            src={asset("/images/logo-footer.svg")}
             alt="Максимус — конный клуб"
           />
         </Link>

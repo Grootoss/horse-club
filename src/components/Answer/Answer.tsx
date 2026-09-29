@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from 'react'
 import styles from './Answer.module.css'
+import { asset } from '../../lib/asset'
 
 type FieldErrors = {
   name?: string
@@ -127,12 +128,12 @@ export function Answer() {
       </form>
       <img
         className={styles.overDesktop}
-        src="/images/contacts-desktop-over-bg.png"
+        src={asset("/images/contacts-desktop-over-bg.png")}
         alt=""
       />
       <img
         className={styles.overlayDesktop}
-        src="/images/contacts-desktop-overlay.png"
+        src={asset("/images/contacts-desktop-overlay.png")}
         alt=""
       />
     </section>
